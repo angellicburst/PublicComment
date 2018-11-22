@@ -41,13 +41,13 @@
 		<table tableName="dic" domainObjectName="DicType"></table>
 		<table tableName="member" domainObjectName="Member"></table>
 		<table tableName="orders" domainObjectName="Orders"></table>
-<!-- 		<table tableName="sys_action" domainObjectName="Advance"></table>
+ 		<table tableName="sys_action" domainObjectName="Advance"></table>
 		<table tableName="sys_group" domainObjectName="Advance"></table>
 		<table tableName="sys_group_action" domainObjectName="Advance"></table>
 		<table tableName="sys_group_menu" domainObjectName="Advance"></table>
 		<table tableName="sys_menu" domainObjectName="Advance"></table>
 		<table tableName="sys_param" domainObjectName="Advance"></table>
-		<table tableName="sys_user" domainObjectName="Advance"></table> -->
+		<table tableName="sys_user" domainObjectName="Advance"></table>
 
 	</context>
 </generatorConfiguration>
