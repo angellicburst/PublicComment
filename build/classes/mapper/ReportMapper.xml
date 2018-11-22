@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dingli.pubcom.dao.ReportMapper">
+	<select id="reportCount" resultType="java.util.HashMap">
+		SELECT
+			b.category AS category,
+			LPAD(HOUR (o.create_time), 2 , 0) AS `hour`,
+			COUNT(o.id) AS num
+		FROM
+			orders o
+		LEFT JOIN business b ON (o.business_id = b.id)
+		WHERE
+			DATE_FORMAT(
+				DATE_ADD(o.create_time, INTERVAL 1 DAY),
+				'%e'
+			) = DATE_FORMAT(NOW(), '%e')
+		GROUP BY
+			b.category,
+			HOUR (o.create_time)
+		ORDER BY
+			o.create_time ASC
+	</select>
+</mapper>

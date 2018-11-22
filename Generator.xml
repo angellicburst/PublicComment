@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+	<properties resource="jdbc.properties" />
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<jdbcConnection driverClass="${driver}"
+			connectionURL="${url}" userId="${username}" password="${password}">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- 实体类 -->
+		<javaModelGenerator targetPackage="com.dingli.pubcom.bean"
+			targetProject=".\src">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		
+		<!-- xml -->
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject=".\resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- dao -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.dingli.pubcom.dao" targetProject=".\src">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<table tableName="ad" domainObjectName="Advance"></table>
+		<table tableName="business" domainObjectName="Business"></table>
+		<table tableName="comment" domainObjectName="Comment"></table>
+		<table tableName="dic" domainObjectName="DicType"></table>
+		<table tableName="member" domainObjectName="Member"></table>
+		<table tableName="orders" domainObjectName="Orders"></table>
+<!-- 		<table tableName="sys_action" domainObjectName="Advance"></table>
+		<table tableName="sys_group" domainObjectName="Advance"></table>
+		<table tableName="sys_group_action" domainObjectName="Advance"></table>
+		<table tableName="sys_group_menu" domainObjectName="Advance"></table>
+		<table tableName="sys_menu" domainObjectName="Advance"></table>
+		<table tableName="sys_param" domainObjectName="Advance"></table>
+		<table tableName="sys_user" domainObjectName="Advance"></table> -->
+
+	</context>
+</generatorConfiguration>
